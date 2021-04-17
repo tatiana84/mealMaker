@@ -29,11 +29,11 @@ let menu = {
         this._courses.desserts = dessertSet;
     },
 
-    get _courses() { // 5 step
+    get courses() { // 5 step
         return{
-            appetizers: this.appetizer,
-            mains: this.main,
-            desserts: this.dessert
+            appetizers: this.appetizers,
+            mains: this.mains,
+            desserts: this.desserts
         }
     },
 // 7-8 step:
@@ -56,7 +56,7 @@ let menu = {
         let main = this.getRandomDishFromCourse('mains');
         let dessert = this.getRandomDishFromCourse('desserts');
         let totalPrice = (appetizer.price + main.price + dessert.price);
-        return `Your bill is ${totalPrice} $.`
+        return `Your bill is ${totalPrice} $.\nYou have ordered: \n${appetizer.name},\n${main.name},\n${dessert.name}`
 
     }
 };
@@ -74,5 +74,5 @@ menu.addDishToCourse('mains', 'Bors rosu', 70);
 menu.addDishToCourse('desserts', 'Tort de miere', 150);
 
 
-let meal = menu.addDishToCourse();
+let meal = menu.generateRandomMeal();
 console.log(meal);
